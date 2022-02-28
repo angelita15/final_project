@@ -17,11 +17,10 @@ const productSchema = new Schema(
             type: String,
             enum: ['SMALL', 'MEDIUM', 'LARGE'],
         },
-        type: [{
+        type: {
             type: String,
-            enum: ['chocolat', 'strawberry', 'biscuit', 'cheesecake', 'LEMON CAKE'],
-        }],
-
+            enum: ['oreo', 'chocolate', 'dulce de leche', 'vainilla', 'red velvet', 'tres chocolates', 'chocolate blanco', 'brownie', 'chocolate y menta', 'kinder bueno', 'cookie cream', 'zanahoria', 'mango', 'fresa', 'platano'],
+        },
         description: {
             type: String,
             maxlength: 500,
