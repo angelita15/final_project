@@ -2,7 +2,7 @@ const router = require("express").Router()
 
 const Product = require('./../models/Product.model')
 
-// crear un porducto 
+// crear un porducto  postman ok 
 router.post("/create", (req, res) => {
 
     const { title, price, size, type, description, images } = req.body
@@ -15,7 +15,7 @@ router.post("/create", (req, res) => {
 })
 
 
-// todos los produtctos
+// todos los produtctos postman ok 
 router.get("/getAllProducts", (req, res) => {
 
     Product
@@ -24,7 +24,7 @@ router.get("/getAllProducts", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-// producto detelle por el id 
+// producto detelle por el id postman ok 
 router.get("/getOneProduct/:product_id", (req, res) => {
 
     const { product_id } = req.params
@@ -35,7 +35,7 @@ router.get("/getOneProduct/:product_id", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-// --- EDITE prod ROUTE
+// producto detalle edit postman ok 
 router.put("/getOneProduct/:product_id/edit", (req, res) => {
 
     const { product_id } = req.params
@@ -49,7 +49,7 @@ router.put("/getOneProduct/:product_id/edit", (req, res) => {
 })
 
 
-// --- DELETE  product
+// --- DELETE  product postman ok 
 router.delete("/getOneProduct/:product_id/delete", (req, res) => {
 
     const { product_id } = req.params

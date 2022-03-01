@@ -5,20 +5,20 @@ const eventSchema = new Schema(
     {
         title: {
             type: String,
-            required: true,
+            // required: true,
             minlength: 1,
             maxlength: 50,
             trim: true,
         },
         date: {
             type: Date,
-            required: true,
+            // required: true,
         },
         address: {
             street: {
                 streetName: {
                     type: String,
-                    required: true
+                    // required: true
                 },
                 streetNumber: Number,
             },
