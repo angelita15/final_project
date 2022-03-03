@@ -29,16 +29,19 @@ const EventDetailsPage = () => {
             {
                 loading
                     ? <h1>Cargando</h1>
-                    : <Container>
+                    : <Container className='hero'>
                         <h2> Detalles de {eventDetails.title} </h2>
-                        <Row className="justify-content-between">
+                        <Row className="d-flex justify-content-center aling-items-center">
                             <Col md={4}>
                                 <h4> Informacion </h4>
                                 <p> {eventDetails.description}</p>
 
                                 <h4> detalles </h4>
                                 <p> fecha {eventDetails.date} </p>
-                                <p> direccion {eventDetails.address.city}</p>
+                                <p> direccion {eventDetails.address.street.streetName}
+                                    {eventDetails.address.street.streetNumber}
+                                    {eventDetails.address.city}
+                                    {eventDetails.address.postCode} </p>
                             </Col>
                             <Col md={6}>
                                 <img style={{ width: '75%' }} src={eventDetails.image} alt={eventDetails.title} />

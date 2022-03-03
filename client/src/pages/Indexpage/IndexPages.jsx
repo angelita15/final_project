@@ -8,20 +8,21 @@ const { default: ControlledCarousel } = require("../../components/Carousels/Caro
 const IndexPage = () => {
 
     return (
-        <>
+        <div className='text-center'>
+
             <Container>
                 <h4> hola a todos </h4>
-                
+
 
             </Container>
             <ControlledCarousel />
-            
+
             <Link to="/getAllEvents">
                 <Button variant="outline-primary" className="button" size='lg'> eventitos </Button> </Link>
             {/* <Link to="/getAllProducts">
                 <Button variant="dark" size='lg'> productos </Button> </Link>   */}
 
-        </>
+        </div>
     )
 }
 

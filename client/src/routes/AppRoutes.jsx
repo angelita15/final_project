@@ -4,6 +4,7 @@ import EventDetailsPage from '../pages/EventDetailsPage/EventDetailsPage';
 
 import ProductListPage from '../pages/ProductsListPage/ProductListPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage/ProductDetailsPage'
+import CreateEventPage from '../pages/CreateEventPage/CreateEventPage';
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -15,6 +16,7 @@ function App() {
                 <Route element={<IndexPage />} path="/" />
                 <Route element={<EventsListPage />} path="/getAllEvents" />
                 <Route element={<EventDetailsPage />} path="detalles/:events_id" />
+                <Route element={<CreateEventPage />} path="/crear" />
                 
                 <Route element={<ProductListPage />} path="/getAllProducts" />
                 <Route element={<ProductDetailsPage />} path="detalles/:products_id" />

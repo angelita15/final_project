@@ -34,6 +34,18 @@ router.get("/getOneEvents/:event_id", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+// guardar evento
+router.post("/saveEvent", (req, res) => {
+
+    const { title, date, streetName, streetNumber, postCode, city, description, image } = req.body
+    const address = { street: { streetName, streetNumber }, postCode, city }
+
+
+    Event
+        .create({ title, date, address, description, image }, { new: true })
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json(err))
+})
 
 
 // edit event rout postman ok 

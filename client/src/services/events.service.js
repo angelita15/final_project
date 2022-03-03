@@ -1,9 +1,10 @@
 import axios from 'axios'
 
-class EventsService{ 
+class EventsService {
     constructor() {
         this.api = axios.create({
-            baseURL:' http://localhost:5005/api/events' })
+            baseURL: ' http://localhost:5005/api/events'
+        })
     }
 
     getAllEvents = () => {
@@ -15,12 +16,16 @@ class EventsService{
 
     }
 
-    putOneEvents= id => {
+    saveEvent = event => {
+        return this.api.post(`/saveEvent`, event)
+    }
+
+    putOneEvents = id => {
         return this.api.put("/getOneEvent/:event_id/edit")
     }
 
-   
-    deleteOneEvents= id => { 
+
+    deleteOneEvents = id => {
         return this.api.delete("/getOneEvent/:event_id/delete")
     }
 
