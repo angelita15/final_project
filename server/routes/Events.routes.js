@@ -24,7 +24,7 @@ router.get("/getAllEvents", (req, res) => {
 })
 
 //detalles del evento rout postman ok 
-router.get("/getOneEvent/:event_id", (req, res) => {
+router.get("/getOneEvents/:event_id", (req, res) => {
 
     const { event_id } = req.params
 
