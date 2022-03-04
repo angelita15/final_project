@@ -29,6 +29,15 @@ const Navigation = () => {
                             <Nav.Link as="span">Contacto</Nav.Link>
                         </NavLink>
 
+                        <NavLink to="/registro">
+                            <Nav.Link as="span"> signup</Nav.Link>
+                        </NavLink>
+
+
+                        <NavLink to="/crear">
+                            <Nav.Link as="span">Eventos crear  que luego lo borrare</Nav.Link>
+                        </NavLink>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

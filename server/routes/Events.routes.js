@@ -9,7 +9,7 @@ router.post("/createEvents", (req, res) => {
     const address = { street: { streetName, streetNumber }, postCode, city }
 
     Event
-        .create({ title, date, address, description, image }, { new: true })
+        .create({ title, date, address, description, image })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -33,20 +33,6 @@ router.get("/getOneEvents/:event_id", (req, res) => {
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
-
-// guardar evento
-router.post("/saveEvent", (req, res) => {
-
-    const { title, date, streetName, streetNumber, postCode, city, description, image } = req.body
-    const address = { street: { streetName, streetNumber }, postCode, city }
-
-
-    Event
-        .create({ title, date, address, description, image }, { new: true })
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-})
-
 
 // edit event rout postman ok 
 router.put("/getOneEvent/:event_id/edit", (req, res) => {

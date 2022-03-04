@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose")
 
-
 const eventSchema = new Schema(
     {
         title: {
@@ -35,7 +34,7 @@ const eventSchema = new Schema(
     {
         timestamps: true,
     }
-);
+)
 
 const Event = model("Event", eventSchema)
 

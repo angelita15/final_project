@@ -3,7 +3,7 @@ import axios from 'axios'
 class EventsService {
     constructor() {
         this.api = axios.create({
-            baseURL: ' http://localhost:5005/api/events'
+            baseURL: `${process.env.REACT_APP_API_URL}/events` 
         })
     }
 
@@ -16,8 +16,8 @@ class EventsService {
 
     }
 
-    saveEvent = event => {
-        return this.api.post(`/saveEvent`, event)
+    createEvent = event => {
+        return this.api.post(`/createEvents`, event)
     }
 
     putOneEvents = id => {

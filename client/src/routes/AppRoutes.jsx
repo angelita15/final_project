@@ -6,6 +6,8 @@ import ProductListPage from '../pages/ProductsListPage/ProductListPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage/ProductDetailsPage'
 import CreateEventPage from '../pages/CreateEventPage/CreateEventPage';
 
+import SignupPage from '../pages/SignupPage/SignupPage';
+
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
                 <Route element={<EventsListPage />} path="/getAllEvents" />
                 <Route element={<EventDetailsPage />} path="detalles/:events_id" />
                 <Route element={<CreateEventPage />} path="/crear" />
+
+                <Route element={<SignupPage />} path="/registro" />
+
                 
                 <Route element={<ProductListPage />} path="/getAllProducts" />
                 <Route element={<ProductDetailsPage />} path="detalles/:products_id" />

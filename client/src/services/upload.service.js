@@ -1,17 +1,17 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// class UploadService {
-//     constructor() {
-//         this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/upload`})
-//         this.api.interceptors.request.use((config)=>{}
-//         )
-//     }
+class UploadService {
+    constructor() {
+        this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/upload` })
+        
+    }
    
-//     uploadImage(imageForm){
-//         this.api.post('/image', imageForm)
-//     }
+    uploadImage(imageForm){
+       return this.api.post('/image', imageForm)
+    }
 
+}
+const uploadService = new UploadService()
 
-// const uploadService = new UploadService()
+export default uploadService
 
-// export default uploadService
