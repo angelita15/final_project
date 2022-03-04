@@ -1,5 +1,7 @@
 import { useState,  } from "react"
 import { Form, Button } from 'react-bootstrap'
+import authService from "../../services/aut.service"
+import  {useNavigate} from 'react-router-dom'
 
 function SignupForm() {
 
@@ -10,6 +12,8 @@ function SignupForm() {
     })
 
     const { username, password, email} = signupForm
+
+    const navigate= useNavigate()
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -23,7 +27,11 @@ function SignupForm() {
 
         e.preventDefault()
 
-        
+        authService
+         .signup(signupForm)
+         .then(({data}) => console.log(data))
+         .catch(err => console.log(err))
+         navigate('/')
     }
 
     return (

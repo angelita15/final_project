@@ -30,7 +30,11 @@ const Navigation = () => {
                         </NavLink>
 
                         <NavLink to="/registro">
-                            <Nav.Link as="span"> signup</Nav.Link>
+                            <Nav.Link as="span"> registrarse </Nav.Link>
+                        </NavLink>
+                        
+                        <NavLink to="/inicioSesion">
+                            <Nav.Link as="span"> inicio sesion karolina </Nav.Link>
                         </NavLink>
 
 

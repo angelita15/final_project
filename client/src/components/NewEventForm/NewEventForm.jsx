@@ -2,6 +2,8 @@ import { Form, Button } from 'react-bootstrap'
 import { useState } from 'react'
 import eventsService from '../../services/events.service'
 import uploadService from '../../services/upload.service'
+import { useNavigate } from 'react-router-dom'
+
 
 const NewEventForm = () => {
     const [eventData, setEventData] = useState({
@@ -22,6 +24,8 @@ const NewEventForm = () => {
     const [loadingImage, setLoadingImage] = useState(false)
 
     const { title, description, date, streetName, streetNumber, postCode, city, image } = eventData
+
+    const navigate = useNavigate()
 
     const handleInputChange = e => {
         const { name, value } = e.target
@@ -45,9 +49,9 @@ const NewEventForm = () => {
 
         uploadService
             .uploadImage(uploadData)
-            .then(({ data }) => { 
-             setLoadingImage(false)
-             setEventData({ ...eventData, image: data.cloudinary_url })
+            .then(({ data }) => {
+                setLoadingImage(false)
+                setEventData({ ...eventData, image: data.cloudinary_url })
             })
             .catch(err => console.log(err))
     }
@@ -57,7 +61,7 @@ const NewEventForm = () => {
 
         eventsService
             .createEvent(eventData)
-            .then(({ data }) => console.log(data))
+            .then(({ data }) => navigate('/getAllEvents'))
             .catch(err => console.log(err))
     }
     //cada enpont del back es un servicio del front 99%
@@ -99,10 +103,6 @@ const NewEventForm = () => {
                 <Form.Control type="text" name="city" value={city} onChange={handleInputChange} />
             </Form.Group>
 
-            {/* <Form.Group className="mb-3" >
-                <Form.Label> imagen  </Form.Label>
-                <Form.Control type="url" name="image" value={image} onChange={handleInputChange} />
-            </Form.Group> */}
 
             <Form.Group controlId="eventImage" className="mb-3">
                 <Form.Label> imagen </Form.Label>
@@ -110,7 +110,7 @@ const NewEventForm = () => {
             </Form.Group>
 
             <Button variant="primary" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere...' : 'Crear evento'}
-                
+
             </Button>
         </Form>
 

@@ -42,7 +42,7 @@ router.put("/getOneEvent/:event_id/edit", (req, res) => {
     const address = { street: { streetName, streetNumber }, postCode, city }
 
     Event
-        .findByIdAndUpdate(event_id, { title, date, address, description, image })
+        .findByIdAndUpdate(event_id, { title, date, address, description, image }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

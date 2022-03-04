@@ -7,6 +7,9 @@ import ProductDetailsPage from '../pages/ProductDetailsPage/ProductDetailsPage'
 import CreateEventPage from '../pages/CreateEventPage/CreateEventPage';
 
 import SignupPage from '../pages/SignupPage/SignupPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+
+import ContactPage from '../pages/ContactPage/ContactPage';
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -21,6 +24,8 @@ function App() {
                 <Route element={<CreateEventPage />} path="/crear" />
 
                 <Route element={<SignupPage />} path="/registro" />
+                <Route element={<LoginPage />} path="/inicioSesion" />
+                <Route element={<ContactPage />} path="/contact" />
 
                 
                 <Route element={<ProductListPage />} path="/getAllProducts" />

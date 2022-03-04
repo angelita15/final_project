@@ -49,6 +49,16 @@ const EventDetailsPage = () => {
                             <Link to="/getAllEvents">
                                 <Button variant="outline-primary" size='lg'> volver a todos los eventitos </Button>
                             </Link>
+
+                                {/* esto es solo para mi tia  */}
+                           
+                            <Link to="/Crear">
+                                <Button variant="outline-primary" size='lg'> EDITAR </Button>
+                            </Link>
+                            
+                            <Link to="/getAllEvents">
+                                <Button variant="outline-primary" size='lg'> eliminar </Button>
+                            </Link>
                         </Row>
                     </Container>
             }
