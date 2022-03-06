@@ -5,7 +5,8 @@ import NewEventForm from '../../components/NewEventForm/NewEventForm'
 const CreateEventPage= ()=> { 
     return(
     <Container>
-    <h1> nuevo evento</h1>
+    
+    <h1> Nuevo evento</h1>
     <NewEventForm/>
     <Link to="/">
      <Button variant="outline-primary" className="button" size='lg'> eventitos </Button>

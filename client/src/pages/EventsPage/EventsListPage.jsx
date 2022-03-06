@@ -21,7 +21,7 @@ const EventListPage = () => {
 
     return (
         <Container>
-            <h1> aqui van estar mis eventos</h1>
+            <h1> Nuestros Eventos</h1>
             <EventList events={events} />
         </Container>
 

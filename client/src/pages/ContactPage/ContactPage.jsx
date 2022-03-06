@@ -7,10 +7,13 @@ const ContactPage = () => {
 
     return (
         <Container>
-            <h3>Contacta con nosotros</h3>
+            <img classNamme="imgLeo" src='../../imagenes/IMG_6840SS.jpg' />
 
             <Row className="justify-content-md-center">
                 <Col md={6}>
+
+        
+                    <h3>Contacta con nosotros</h3>
                     <p>Si tienes cualquier duda, o pedido mándanos un e-mail y te respondere lo antes posible</p>
                     <ContactForm />
                 </Col>

@@ -1,18 +1,16 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import './Navbar.css'
 const Navigation = () => {
     return (
-        <Navbar bg="light" variant='light' expand="lg">
+        <Navbar expand="lg">
             <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <NavLink to="/">
-                        <Nav className="me-auto">
+                    <Nav className='nav mx-auto'>
+                        <NavLink to="/">
                             <Nav.Link as="span">Inicio</Nav.Link>
-                        </Nav>
-                    </NavLink>
-                    <Nav className="mx-auto">
-
+                        </NavLink>
                         <NavLink to="/getAllProducts">
                             <Nav.Link as="span">Productos</Nav.Link>
                         </NavLink>
@@ -20,7 +18,7 @@ const Navigation = () => {
                             <Nav.Link as="span">Blog</Nav.Link>
                         </NavLink>
                         <NavLink to="/">
-                            <Navbar.Brand as="span">Karolina Rueda Eventos </Navbar.Brand>
+                            <img src='../imagenes/logo.png' />
                         </NavLink>
                         <NavLink to="/getAllEvents">
                             <Nav.Link as="span">Eventos</Nav.Link>
@@ -29,18 +27,14 @@ const Navigation = () => {
                             <Nav.Link as="span">Contacto</Nav.Link>
                         </NavLink>
 
-                        <NavLink to="/registro">
+                        {/* <NavLink to="/registro">
                             <Nav.Link as="span"> registrarse </Nav.Link>
                         </NavLink>
-                        
+
                         <NavLink to="/inicioSesion">
                             <Nav.Link as="span"> inicio sesion karolina </Nav.Link>
-                        </NavLink>
+                        </NavLink> */}
 
-
-                        <NavLink to="/crear">
-                            <Nav.Link as="span">Eventos crear  que luego lo borrare</Nav.Link>
-                        </NavLink>
 
                     </Nav>
                 </Navbar.Collapse>

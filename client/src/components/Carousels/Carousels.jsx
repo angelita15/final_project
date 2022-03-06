@@ -13,8 +13,8 @@ const ControlledCarousel = () => {
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item interval={1000}>
                 <img
-                    className="d-block w-100 carImg"
-                    src="https://lospostresdekelly.com/wp-content/uploads/2020/02/IMG_5637-1.jpeg"
+                    className=" carImg"
+                    src="../imagenes/IMG_6840.jpg"
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -24,8 +24,8 @@ const ControlledCarousel = () => {
             </Carousel.Item>
             <Carousel.Item >
                 <img
-                    className="d-block w-100 carImg"
-                    src="https://lospostresdekelly.com/wp-content/uploads/2020/02/IMG_7557-1.jpeg"
+                    className=" carImg"
+                    src="../imagenes/IMG_6842.jpg"
                     alt="Second slide"
                 />
 
@@ -36,10 +36,22 @@ const ControlledCarousel = () => {
             </Carousel.Item>
             <Carousel.Item >
                 <img
-                    className="d-block w-100 carImg"
-                    src="https://lospostresdekelly.com/wp-content/uploads/2020/02/IMG_3664.jpeg"
+                    className=" carImg"
+                    src="../imagenes/IMG_6843.jpg"
                     alt="Third slide"
                 />
+                <Carousel.Caption >
+                    <h3> slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item >
+                <img
+                    className=" carImg"
+                    src="../imagenes/IMG_6841.jpg"
+                    alt="Four slide"
+                />
+
 
                 <Carousel.Caption>
                     <h3>Third slide label</h3>

@@ -50,14 +50,21 @@ const EventDetailsPage = () => {
                                 <Button variant="outline-primary" size='lg'> volver a todos los eventitos </Button>
                             </Link>
 
-                                {/* esto es solo para mi tia  */}
-                           
-                            <Link to="/Crear">
+                                {/* esto es solo para mi tia  */}   
+
+{/* 
+                            <Link to={`/eventos/modificar-evento/${eventDetails._id}`}>
+                                <Button variant="light">Editar evento</Button>
+                            </Link>
+
+                            <Button variant="light" onClick={deleteEvent}>Borrar evento</Button> */}
+                            
+                            <Link to="/editEvent">
                                 <Button variant="outline-primary" size='lg'> EDITAR </Button>
                             </Link>
                             
-                            <Link to="/getAllEvents">
-                                <Button variant="outline-primary" size='lg'> eliminar </Button>
+                            <Link to="/crear">
+                                <Button variant="outline-primary" size='lg'> crear </Button>
                             </Link>
                         </Row>
                     </Container>
