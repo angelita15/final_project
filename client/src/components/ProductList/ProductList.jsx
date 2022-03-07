@@ -4,11 +4,11 @@ import ProductCard from '../ProductCard/ProductCard'
 const ProductList = ({ products }) => {
     return (
         <Row>
-            {products.map(products => {
+            {products.map(product => {
                 return (
-                    <Col md={4} key={products._id}>
-                        <ProductCard  {...products} />
-                    
+                    <Col md={4} key={product._id}>
+                        <ProductCard  {...product} />
+
                     </Col>
                 )
             })}

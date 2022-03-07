@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import eventsService from '../../services/events.service'
+
 
 
 const EventDetailsPage = () => {
     const [eventDetails, setEventDetails] = useState({})
     const [loading, setLoading] = useState(true)
     const { events_id } = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadEvent()
@@ -22,6 +24,17 @@ const EventDetailsPage = () => {
                 setLoading(false)
             })
             .catch(err => console.log(err))
+
+    }
+
+    const deleteEvent = () => {
+        eventsService
+            .deleteOneEvents(events_id)
+            .then(() => {
+                navigate('/getAllEvents')
+            })
+            .catch(err => console.log(err))
+
     }
 
     return (
@@ -50,19 +63,14 @@ const EventDetailsPage = () => {
                                 <Button variant="outline-primary" size='lg'> volver a todos los eventitos </Button>
                             </Link>
 
-                                {/* esto es solo para mi tia  */}   
+                            {/* estos botones solo los puede ver el admin esta pendiente */}
 
-{/* 
-                            <Link to={`/eventos/modificar-evento/${eventDetails._id}`}>
-                                <Button variant="light">Editar evento</Button>
-                            </Link>
+                            <Button variant="light" onClick={deleteEvent}>Borrar evento</Button>
 
-                            <Button variant="light" onClick={deleteEvent}>Borrar evento</Button> */}
-                            
                             <Link to={`/editEvent/${events_id}`}>
                                 <Button variant="outline-primary" size='lg'> EDITAR </Button>
                             </Link>
-                            
+
                             <Link to="/crear">
                                 <Button variant="outline-primary" size='lg'> crear </Button>
                             </Link>

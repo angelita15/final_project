@@ -8,7 +8,7 @@ const ProductsCard = ({ title, images, _id }) => {
             <Card.Img variant="top" src={images[0]} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Link to={`/detalles/${_id}`}>
+                <Link to={`/detalles/producto/${_id}`}>
                     {/* <Card.date> {date}</Card.date> */}
 
                     {/* <Card.Text>

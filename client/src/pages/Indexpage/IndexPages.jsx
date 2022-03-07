@@ -12,7 +12,7 @@ const IndexPage = () => {
         <div className='text-center'>
 
             <ControlledCarousel />
-           
+
             <div className='box'>
                 {/* <h1> Nuestras tartas son caseras y artesanas,
                     como las de siempre pero con la chispa de creatividad que marca la diferencia! </h1>
@@ -20,7 +20,7 @@ const IndexPage = () => {
                     imaginalo nostros lo creamos!
                 </h2> */}
             </div>
-          
+
             <video src='../../videos/pexels-any-lane-5727374.mp4' autoPlay muted loop></video>
 
             <Link to="/getAllEvents">

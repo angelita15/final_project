@@ -12,6 +12,9 @@ import ContactPage from '../pages/ContactPage/ContactPage';
 
 import ProductListPage from '../pages/ProductsListPage/ProductListPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage/ProductDetailsPage';
+import CreateProductPage from '../pages/CreateProductPage/CreateProductPage';
+import ProductEditPage from '../pages/ProductEditPage/ProductEditPage';
+
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -27,16 +30,19 @@ function App() {
                 <Route element={<EventEditPage />} path="/editEvent/:events_id" />
 
                 <Route element={<ProductListPage />} path="/getAllProducts" />
-                <Route element={<ProductDetailsPage />} path="detalles/:products_id" />
-                
-                <Route element={<ContactPage />} path="/contact" />
-                
-                <Route element={<SignupPage />} path="/registro" />
-                <Route element={<LoginPage />} path="/inicioSesion" />
-               
+                <Route element={<ProductDetailsPage />} path="/detalles/producto/:products_id" />
+                <Route element={<CreateProductPage />} path="/crearProducto" />
+                <Route element={<ProductEditPage />} path="/editProduct/:products_id" />
 
+                <Route element={<ContactPage />} path="/contact" />
+
+                <Route element={<SignupPage />} path="/registro" />
                 
-                
+                <Route element={<LoginPage />} path="/inicioSesion" />
+
+
+
+
             </Routes>
 
         </>

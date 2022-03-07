@@ -26,7 +26,7 @@ class EventsService {
 
 
     deleteOneEvents = id => {
-        return this.api.delete("/getOneEvent/:event_id/delete")
+        return this.api.delete(`/deleteOneEvent/${id}/`)
     }
 
 

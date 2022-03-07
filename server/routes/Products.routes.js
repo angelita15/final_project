@@ -3,13 +3,12 @@ const router = require("express").Router()
 const Product = require('./../models/Product.model')
 
 // crear un porducto  postman ok 
-router.post("/create", (req, res) => {
+router.post("/createProducts", (req, res) => {
 
     const { title, price, size, type, description, images } = req.body
-    console.log(req.body.title)
 
     Product
-        .create({ title, price, size, type, description, images }, { new: true })
+        .create({ title, price, size, type, description, images })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -43,14 +42,14 @@ router.put("/getOneProduct/:product_id/edit", (req, res) => {
 
 
     Product
-        .findByIdAndUpdate(product_id, { title, price, size, type, description, images })
+        .findByIdAndUpdate(product_id, { title, price, size, type, description, images }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
 
 // --- DELETE  product postman ok 
-router.delete("/getOneProduct/:product_id/delete", (req, res) => {
+router.delete("/deleteOneProduct/:product_id/", (req, res) => {
 
     const { product_id } = req.params
 

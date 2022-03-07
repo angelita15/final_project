@@ -1,5 +1,3 @@
-//me importo el formulario de edicion y lo pego abaj9  EventEditForm
-
 import { Container } from "react-bootstrap"
 import EventEditForm from "../../components/EventEditForm/EventEditForm"
 const EventEditPage = () => {

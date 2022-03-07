@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-// import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import productsService from '../../services/products.service'
 
 
@@ -9,14 +9,16 @@ const ProductDetailsPage = () => {
     const [productDetails, setProductDetails] = useState({})
     const [loading, setLoading] = useState(true)
     const { products_id } = useParams()
+    const navigate = useNavigate()
+
 
     useEffect(() => {
-        loadEvent()
+        loadProduct()
     }, [])
 
-    const loadEvent = () => {
+    const loadProduct = () => {
         productsService
-            .getOneEvents(products_id)
+            .getOneProducts(products_id)
             .then(({ data }) => {
                 setProductDetails(data)
                 setLoading(false)
@@ -24,6 +26,15 @@ const ProductDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
+    const deleteProduct = () => {
+        productsService
+            .deleteOneProducts(products_id)
+            .then(() => {
+                navigate('/getAllProducts')
+            })
+            .catch(err => console.log(err))
+        }
+   
     return (
         <>
             {
@@ -40,12 +51,25 @@ const ProductDetailsPage = () => {
                                 <p> precio {productDetails.price} </p>
                                 <p> tipo {productDetails.type} </p>
                                 <p> tamaño {productDetails.size} </p>
-                                
+
                             </Col>
                             <Col md={6}>
                                 <img style={{ width: '75%' }} src={productDetails.images} alt={productDetails.title} />
                             </Col>
-                        
+
+                            <Link to="/getAllProducts">
+                                <Button variant="outline-primary" size='lg'> volver a todos los productos </Button>
+                            </Link>
+
+                            <Link to="/crearProducto">
+                                <Button variant="outline-primary" size='lg'> crear </Button>
+                            </Link>
+                            <Button variant="light" onClick={deleteProduct}>Borrar producto</Button>
+
+                            <Link to={`/editProduct/${products_id}`}>
+                                <Button variant="outline-primary" size='lg'> EDITAR </Button>
+                            </Link>
+
                         </Row>
                     </Container>
             }

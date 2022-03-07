@@ -49,12 +49,12 @@ router.put("/getOneEvent/:event_id/edit", (req, res) => {
 
 
 // --- DELETE  event postman ok 
-router.delete("/getOneEvent/:event_id/delete", (req, res) => {
+router.delete("/deleteOneEvent/:id/", (req, res) => {
 
-    const { event_id } = req.params
+    const { id } = req.params
 
     Event
-        .findByIdAndDelete(event_id)
+        .findByIdAndDelete(id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
