@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
+import emailService from "../../services/email.service"
 
 
 function ContactForm() {
@@ -20,10 +21,11 @@ function ContactForm() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        
-            .contact(contactForm)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+       
+        emailService
+        .contact(contactForm)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
         navigate('/')
     }
 

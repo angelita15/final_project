@@ -20,8 +20,8 @@ class EventsService {
         return this.api.post(`/createEvents`, event)
     }
 
-    putOneEvents = id => {
-        return this.api.put("/getOneEvent/:event_id/edit")
+    putOneEvents = (id, eventInfo) => {
+        return this.api.put(`/getOneEvent/${id}/edit`, eventInfo)
     }
 
 

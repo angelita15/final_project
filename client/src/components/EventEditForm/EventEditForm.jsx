@@ -1,60 +1,62 @@
 import { Form, Button } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import eventsService from '../../services/events.service'
 import uploadService from '../../services/upload.service'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
 const EventEditForm = () => {
-    
-    const { event_id} = useParams() 
-    
-    const [EventEditPage, setEventEdit] = useState({
+    const {events_id} = useParams()
+    console.log(events_id)
+    const navigate = useNavigate()
+
+    const [loadingImage, setLoadingImage] = useState(false)
+    const [loadingEvent, setLoadingEvent] = useState(true)
+    const [eventEdit, setEventEdit] = useState({
         title: '',
         description: '',
         date: '',
-        address: {
-            street: {
-                streetName: '',
-                streetNumber: '',
-            },
-            postCode: '',
-            city: ''
-        },
+        streetName: '',
+        streetNumber: '',
+        postCode: '',
+        city: '',
         image: ''
     })
-
-    const [loadingImage, setLoadingImage] = useState(false)
-
-    const { title, description, date, streetName, streetNumber, postCode, city, image } = EventEditPage
-
-    const navigate = useNavigate()
-
+    
+    const { title, description, date, streetName, streetNumber, postCode, city, image } = eventEdit
+    
+    useEffect(() => {
+      eventsService
+        .getOneEvents(events_id)
+        .then(({data})=> {
+            const { title, description, date, address: { street: {streetName, streetNumber}, postCode, city}, image } = data
+            const editedEvent = { title, description, date, streetName, streetNumber, postCode, city, image}
+            setEventEdit(editedEvent)
+            setLoadingEvent(false)
+        })
+    }, [])
+    
     const handleInputChange = e => {
         const { name, value } = e.target
 
         setEventEdit({
-            ...EventEditPage,     // "duplico el objeto para que no modifique el estado inicial"
-            [name]: value    // con name me traigo el nombre de cada campo 
+            ...eventEdit,    
+            [name]: value    
         })
 
     }
 
     const uploadEventImage = e => {
-
         setLoadingImage(true)
 
-
-        console.log(e.target.files)
-
-        const uploadData = new FormData()   //simula un formulario para el servidor 
+        const uploadData = new FormData()   
         uploadData.append('imageData', e.target.files[0])
 
         uploadService
             .uploadImage(uploadData)
             .then(({ data }) => {
                 setLoadingImage(false)
-                setEventEdit({ ...EventEditPage, image: data.cloudinary_url })
+                setEventEdit({ ...eventEdit, image: data.cloudinary_url })
             })
             .catch(err => console.log(err))
     }
@@ -63,13 +65,18 @@ const EventEditForm = () => {
         e.preventDefault()
 
         eventsService
-            .putOneEvents(event_id, EventEditPage)
-            .then(({ data }) => navigate('detalles/:events_id'))
+            .putOneEvents(events_id, eventEdit)
+            .then(() => {
+                navigate('/getAllEvents')
+                // navigate(`/detalles/${_id}`)
+            })
             .catch(err => console.log(err))
     }
-    //cada enpont del back es un servicio del front 99%
+    
 
-    return (
+    return loadingEvent 
+    ? <h1>Cargando</h1>
+    : (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" >
                 <Form.Label>Nombre</Form.Label>
@@ -106,13 +113,12 @@ const EventEditForm = () => {
                 <Form.Control type="text" name="city" value={city} onChange={handleInputChange} />
             </Form.Group>
 
-
             <Form.Group controlId="eventImage" className="mb-3">
                 <Form.Label> imagen </Form.Label>
                 <Form.Control type="file" onChange={uploadEventImage} />
             </Form.Group>
 
-            <Button variant="primary" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere...' : 'Crear evento'}
+            <Button variant="primary" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere...' : 'Modificar evento'}
 
             </Button>
         </Form>

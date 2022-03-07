@@ -24,14 +24,16 @@ function App() {
                 <Route element={<EventsListPage />} path="/getAllEvents" />
                 <Route element={<EventDetailsPage />} path="detalles/:events_id" />
                 <Route element={<CreateEventPage />} path="/crear" />
-                <Route element={<EventEditPage />} path="/editEvent" />
+                <Route element={<EventEditPage />} path="/editEvent/:events_id" />
 
                 <Route element={<ProductListPage />} path="/getAllProducts" />
                 <Route element={<ProductDetailsPage />} path="detalles/:products_id" />
-
+                
+                <Route element={<ContactPage />} path="/contact" />
+                
                 <Route element={<SignupPage />} path="/registro" />
                 <Route element={<LoginPage />} path="/inicioSesion" />
-                <Route element={<ContactPage />} path="/contact" />
+               
 
                 
                 

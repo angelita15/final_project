@@ -23,16 +23,13 @@ const ContactPage = () => {
                 <h2>¿QUIERES TENER NUESTRAS TARTAS EN TU RESTAURANTE?</h2>
                 <Col md={6}>
                     <section>
-                         
-                        ¿tienes alguna pregunta ? quieres hacer un pedido?
-                       
+                        hacemos productos artesanales y frescos a diario para distintos clientes, adaptándonos a las necesidades y gustos de cada uno
+                        nuestra especilidad son las tartas personalizadas! imaginalo y nostros lo creamos!
                     </section>
                 </Col>
                 <Col md={6}>
                     <section>
-                        hacemos postres artesanales y frescos a diario para distintos clientes, adaptándonos a las necesidades y gustos de cada uno.
-
-                        Escríbenos: info@Karolina.com o llámanos: +34 687 693 563
+                        Escríbenos: karolinaruedapagina@gmail.com o llámanos: +34 625 22 63 20 
                     </section>
                 </Col>
             </Row>

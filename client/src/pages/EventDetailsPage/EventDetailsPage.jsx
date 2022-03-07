@@ -59,7 +59,7 @@ const EventDetailsPage = () => {
 
                             <Button variant="light" onClick={deleteEvent}>Borrar evento</Button> */}
                             
-                            <Link to="/editEvent">
+                            <Link to={`/editEvent/${events_id}`}>
                                 <Button variant="outline-primary" size='lg'> EDITAR </Button>
                             </Link>
                             
