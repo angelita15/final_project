@@ -1,6 +1,6 @@
 import { useState,  } from "react"
 import { Form, Button } from 'react-bootstrap'
-import authService from "../../services/aut.service"
+import authService from "../../services/auth.service"
 import  {useNavigate} from 'react-router-dom'
 
 function SignupForm() {

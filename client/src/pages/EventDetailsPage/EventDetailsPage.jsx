@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router-dom'
 import eventsService from '../../services/events.service'
-
+import { AuthContext } from '../../context/auth.contex'
 
 
 const EventDetailsPage = () => {
@@ -11,6 +11,7 @@ const EventDetailsPage = () => {
     const [loading, setLoading] = useState(true)
     const { events_id } = useParams()
     const navigate = useNavigate()
+    const { isLoggedIn } = useContext(AuthContext)
 
     useEffect(() => {
         loadEvent()
@@ -63,17 +64,24 @@ const EventDetailsPage = () => {
                                 <Button variant="outline-primary" size='lg'> volver a todos los eventitos </Button>
                             </Link>
 
-                            {/* estos botones solo los puede ver el admin esta pendiente */}
+                            {
+                                isLoggedIn &&
 
-                            <Button variant="light" onClick={deleteEvent}>Borrar evento</Button>
+                                <Button variant="light" onClick={deleteEvent}>Borrar evento</Button>
+                            }
 
-                            <Link to={`/editEvent/${events_id}`}>
-                                <Button variant="outline-primary" size='lg'> EDITAR </Button>
-                            </Link>
-
-                            <Link to="/crear">
-                                <Button variant="outline-primary" size='lg'> crear </Button>
-                            </Link>
+                            {
+                                isLoggedIn &&
+                                <Link to={`/editEvent/${events_id}`}>
+                                    <Button variant="outline-primary" size='lg'> EDITAR </Button>
+                                </Link>
+                            }
+                            {
+                                isLoggedIn &&
+                                <Link to="/crear">
+                                    <Button variant="outline-primary" size='lg'> crear </Button>
+                                </Link>
+                            }
                         </Row>
                     </Container>
             }

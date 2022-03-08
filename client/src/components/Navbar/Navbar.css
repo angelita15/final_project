@@ -8,8 +8,9 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
-.navbar img{
+.logo{
     width: 100px;
 }
 .nav {
@@ -23,4 +24,18 @@
     font-weight: 600;
     font-size: 20px;
 
+}
+
+.buttons {
+    position: absolute;
+    right: 100px;
+    top:25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+}
+
+.buttons img { 
+    width: 30px;
 }

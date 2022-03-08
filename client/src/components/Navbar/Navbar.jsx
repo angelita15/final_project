@@ -1,7 +1,15 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
+import { AuthContext } from './../../context/auth.contex'
+import { useContext } from 'react'
+
+
+
 const Navigation = () => {
+
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
+
     return (
         <Navbar expand="lg">
             <Container>
@@ -18,7 +26,7 @@ const Navigation = () => {
                             <Nav.Link as="span">Blog</Nav.Link>
                         </NavLink>
                         <NavLink to="/">
-                            <img src='../imagenes/logo.png' />
+                            <img className='logo' src='../imagenes/logo.png' />
                         </NavLink>
                         <NavLink to="/getAllEvents">
                             <Nav.Link as="span">Eventos</Nav.Link>
@@ -27,13 +35,24 @@ const Navigation = () => {
                             <Nav.Link as="span">Contacto</Nav.Link>
                         </NavLink>
 
-                        {/* <NavLink to="/registro">
-                            <Nav.Link as="span"> registrarse </Nav.Link>
-                        </NavLink>
 
-                        <NavLink to="/inicioSesion">
-                            <Nav.Link as="span"> inicio sesion karolina </Nav.Link>
-                        </NavLink> */}
+                        {
+                            !isLoggedIn ?
+                                <div className='buttons'>
+                                    <NavLink to="/inicioSesion">
+                                        <img className='home' src='../imagenes/casa-icono.png' />
+                                    </NavLink>
+
+                                    <NavLink to="/registro">
+                                        <img className='user' src='../imagenes/user.png' />
+                                    </NavLink>
+                                </div>
+                                :
+                                <>
+                                    <Nav.Link as="span">Hola, {user?.username}</Nav.Link>¡
+                                    <Nav.Link as="span" onClick={logOutUser}>Cerrar sesión</Nav.Link>
+                                </>
+                        }
 
 
                     </Nav>

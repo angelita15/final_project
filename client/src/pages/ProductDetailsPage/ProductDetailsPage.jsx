@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router-dom'
 import productsService from '../../services/products.service'
+import { AuthContext } from '../../context/auth.contex'
 
 
 const ProductDetailsPage = () => {
@@ -10,6 +11,8 @@ const ProductDetailsPage = () => {
     const [loading, setLoading] = useState(true)
     const { products_id } = useParams()
     const navigate = useNavigate()
+
+    const { isLoggedIn } = useContext(AuthContext)
 
 
     useEffect(() => {
@@ -33,8 +36,8 @@ const ProductDetailsPage = () => {
                 navigate('/getAllProducts')
             })
             .catch(err => console.log(err))
-        }
-   
+    }
+
     return (
         <>
             {
@@ -60,15 +63,24 @@ const ProductDetailsPage = () => {
                             <Link to="/getAllProducts">
                                 <Button variant="outline-primary" size='lg'> volver a todos los productos </Button>
                             </Link>
+                            {
+                                isLoggedIn &&
+                                <Link to="/crearProducto">
+                                    <Button variant="outline-primary" size='lg'> crear </Button>
+                                </Link>}
 
-                            <Link to="/crearProducto">
-                                <Button variant="outline-primary" size='lg'> crear </Button>
-                            </Link>
-                            <Button variant="light" onClick={deleteProduct}>Borrar producto</Button>
+                            {
+                                isLoggedIn &&
+                                <Button variant="light" onClick={deleteProduct}>Borrar producto</Button>
+                            }
 
-                            <Link to={`/editProduct/${products_id}`}>
-                                <Button variant="outline-primary" size='lg'> EDITAR </Button>
-                            </Link>
+                            {
+                                isLoggedIn &&
+                                <Link to={`/editProduct/${products_id}`}>
+                                    <Button variant="outline-primary" size='lg'> EDITAR </Button>
+                                </Link>
+                            }
+
 
                         </Row>
                     </Container>

@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Button, Form } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import emailService from "../../services/email.service"
+import './ContactForm.css'
 
 
 function ContactForm() {
